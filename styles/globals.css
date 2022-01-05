@@ -33,3 +33,25 @@ a {
   margin: 0;
   border-radius: 16px;
 }
+.maxw {
+  width: 100%;
+  max-width: 300px !important;
+}
+
+.maxw2 {
+  width: 100%;
+  max-width: 540px !important;
+}
+.glex {
+  display: flex;
+  justify-content: space-between;
+}
+
+dd {
+  line-height: 150%  !important;
+  color: #444 !important;
+}
+
+dt {
+  color: #111 !important;
+}

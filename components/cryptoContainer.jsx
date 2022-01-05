@@ -9,13 +9,14 @@ function CryptoContainer() {
   const [err, setArr] = useState(false);
   const [limit, setLimit] = useState(0);
 
+
   useEffect(() => {
     axios({
       url: "https://api.coinranking.com/v2/coins?limit=16",
       method: "get",
     }).then((res) => {
       if (res.status === 200) {
-        setData(res.data["data"]["coins"]);
+        setData(res.data.data.coins);
         setLoading(false);
       } else {
         setArr(true);
@@ -33,7 +34,7 @@ function CryptoContainer() {
     return <Loading gap={2.5} />;
   }
   return (
-    <Grid.Container gap={2}>
+    <Grid.Container gap={2} justify="center">
       {data.map((coin, id) => (
         <CryptoItem
           key={id}
@@ -43,6 +44,7 @@ function CryptoContainer() {
           name={coin.name}
           price={coin.price}
           image={coin.iconUrl}
+          uuid={coin.uuid}
         />
       ))}
     </Grid.Container>

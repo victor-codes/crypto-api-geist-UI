@@ -11,12 +11,14 @@ function Search() {
           {...bindings}
           icon={<SearchIcon />}
           width={"100%"}
-          scale={4 / 3}
+          scale={1}
           placeholder="Search For Crypto Assets"
         />
       </Grid>
       <Grid xs={3} width={"100%"}>
-        <Button auto>Search</Button>
+        <Button scale={0.75} style={{ width: "100%" }} auto type="secondary">
+          Search
+        </Button>
       </Grid>
     </Grid.Container>
   );

@@ -6,16 +6,15 @@ import React, { useEffect } from "react";
 import { ArrowUp } from "@geist-ui/react-icons";
 import { ArrowDown } from "@geist-ui/react-icons";
 
-function CryptoItem({ name, price, change, symbol, image }) {
+function CryptoItem({ name, price, change, symbol, image, uuid }) {
   let changeInd;
   if (Number(change) < 0) {
     changeInd = false;
   } else {
     changeInd = true;
   }
-  console.log(Number(change), changeInd);
   return (
-    <Link href={`/assets/[id]`} as={`/assets/${symbol.toLowerCase()}`} passHref>
+    <Link href={`/assets/[id]`} as={`/assets/${uuid}`} passHref>
       <a>
         <Grid xs={6}>
           <Card width={"200px"} hoverable>
