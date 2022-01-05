@@ -3,16 +3,17 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import CryptoItem from "./crytoItem";
 
-function CryptoContainer() {
+function CryptoContainer({ input, search }) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [err, setArr] = useState(false);
-  const [limit, setLimit] = useState(0);
 
+  const defaultUrl = "https://api.coinranking.com/v2/coins?limit=16";
+  const searchUrl = `https://api.coinranking.com/v2/coins?search=${input}`;
 
   useEffect(() => {
     axios({
-      url: "https://api.coinranking.com/v2/coins?limit=16",
+      url: input === "" ? defaultUrl : searchUrl,
       method: "get",
     }).then((res) => {
       if (res.status === 200) {
@@ -25,7 +26,7 @@ function CryptoContainer() {
     return () => {
       setLoading(false);
     };
-  }, [loading]);
+  }, [loading, search]);
 
   if (err) {
     return null;

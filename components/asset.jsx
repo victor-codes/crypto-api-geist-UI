@@ -1,4 +1,5 @@
 import {
+  Button,
   Description,
   Divider,
   Grid,
@@ -7,7 +8,7 @@ import {
   Text,
   Tooltip,
 } from "@geist-ui/react";
-import { ExternalLink } from "@geist-ui/react-icons";
+import { ChevronLeft, ExternalLink } from "@geist-ui/react-icons";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
@@ -51,6 +52,17 @@ function Asset({ coin }) {
             </Link>
           </Text>
           <Divider />
+          <Button
+            onClick={() => {
+              window.history.back();
+            }}
+            auto
+            type="abort"
+            padding={0}
+          >
+            {" "}
+            <ChevronLeft /> Back
+          </Button>
         </Page.Header>
         <Page.Content>
           <div className="glex">
@@ -147,7 +159,7 @@ const AssetLink = ({ links }) => {
             <p style={{ fontSize: 12, color: "#555" }}>
               {link.type.toUpperCase()}
             </p>
-            <Tooltip text={link.url} type="dark" >
+            <Tooltip text={link.url} type="dark">
               <a
                 style={{ color: "#333", textTransform: "capitalize" }}
                 target="_blank"

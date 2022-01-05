@@ -71,8 +71,10 @@ function CryptoItem({ name, price, change, symbol, image, uuid }) {
 export default CryptoItem;
 
 const trim = (str) => {
-  let arr = str.split("");
-  let index = arr.indexOf(".");
-  let newStr = arr.slice(0, index + 3);
-  return newStr;
+  if (str) {
+    let arr = str.split("");
+    let index = arr.indexOf(".");
+    let newStr = arr.slice(0, index + 3);
+    return newStr;
+  }
 };
